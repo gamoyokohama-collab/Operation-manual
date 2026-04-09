@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イベント運営マニュアル｜営業担当者向け</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #E8457A;
+    --pink-light: #FFE8F0;
+    --pink-mid: #F7B8CF;
+    --navy: #1A1E35;
+    --navy-mid: #2D3356;
+    --gold: #C9973A;
+    --gold-light: #FFF5E0;
+    --gray: #F5F5F7;
+    --gray-mid: #E0E0E5;
+    --text: #222230;
+    --text-light: #6B6B80;
+    --green: #2EB87A;
+    --green-light: #E8FAF3;
+    --orange: #F07840;
+    --orange-light: #FFF0E8;
+    --blue: #2B7FE0;
+    --blue-light: #E8F2FF;
+    --red: #E03C3C;
+    --red-light: #FFF0F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #FAFAFA;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ===== 印刷設定 ===== */
+  @media print {
+    body { background: white; font-size: 12px; }
+    .no-print { display: none; }
+    .page-break { page-break-before: always; }
+    section { break-inside: avoid; }
+    .card { break-inside: avoid; }
+  }
+
+  /* ===== ヘッダー ===== */
+  .header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #3D4480 100%);
+    color: white;
+    padding: 32px 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(232, 69, 122, 0.15);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; left: 30%;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(201, 151, 58, 0.12);
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--pink);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .header h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 8px;
+  }
+  .header-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .header-tag {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  /* ===== メインコンテナ ===== */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  /* ===== 注意ボックス ===== */
+  .alert-box {
+    background: linear-gradient(135deg, var(--pink) 0%, #C13060 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 18px 24px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 4px 20px rgba(232,69,122,0.3);
+  }
+  .alert-icon { font-size: 28px; flex-shrink: 0; }
+  .alert-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .alert-text { font-size: 13px; opacity: 0.92; line-height: 1.6; }
+
+  /* ===== セクション ===== */
+  .section {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--pink);
+  }
+  .section-num {
+    background: var(--pink);
+    color: white;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  /* ===== カード ===== */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border: 1px solid var(--gray-mid);
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .tag-pink { background: var(--pink-light); color: var(--pink); }
+  .tag-green { background: var(--green-light); color: var(--green); }
+  .tag-blue { background: var(--blue-light); color: var(--blue); }
+  .tag-orange { background: var(--orange-light); color: var(--orange); }
+  .tag-navy { background: var(--navy); color: white; }
+
+  /* ===== 2カラム ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  /* ===== フロー図 ===== */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .flow-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .flow-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--pink);
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(232,69,122,0.4);
+  }
+  .flow-dot.green { background: var(--green); box-shadow: 0 2px 8px rgba(46,184,122,0.4); }
+  .flow-dot.blue { background: var(--blue); box-shadow: 0 2px 8px rgba(43,127,224,0.4); }
+  .flow-dot.gold { background: var(--gold); box-shadow: 0 2px 8px rgba(201,151,58,0.4); }
+  .flow-line {
+    width: 2px;
+    flex: 1;
+    background: var(--gray-mid);
+    min-height: 24px;
+    margin: 4px 0;
+  }
+  .flow-content {
+    flex: 1;
+    padding-bottom: 20px;
+  }
+  .flow-step-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--navy);
+  }
+
+  /* ===== スマホモックアップ ===== */
+  .phone-mockup-wrap {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .phone-mockup {
+    width: 160px;
+    flex-shrink: 0;
+  }
+  .phone-frame {
+    background: var(--navy);
+    border-radius: 28px;
+    padding: 10px 8px;
+    box-shadow: 0 8px 30px rgba(26,30,53,0.35);
+    position: relative;
+  }
+  .phone-notch {
+    width: 50px; height: 10px;
+    background: var(--navy);
+    border-radius: 0 0 8px 8px;
+    margin: 0 auto 6px;
+    position: relative;
+    z-index: 2;
+  }
+  .phone-screen {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 240px;
+  }
+  .phone-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+
+  /* ===== 画面コンテンツ共通 ===== */
+  .screen-header {
+    padding: 10px 10px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .screen-body {
+    padding: 8px 10px;
+  }
+
+  /* ===== 入場証画面 ===== */
+  .screen-ticket .screen-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    font-size: 10px;
+  }
+  .screen-ticket .ticket-event {
+    font-size: 9px;
+    color: var(--pink);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .screen-ticket .ticket-name {
+    font-size: 13px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  .screen-ticket .ticket-id {
+    font-size: 8px;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .screen-ticket .qr-placeholder {
+    width: 60px; height: 60px;
+    margin: 0 auto 8px;
+    background: var(--gray);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: var(--text-light);
+    border: 1px dashed var(--gray-mid);
+  }
+  .screen-ticket .map-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 8px 0 4px;
+  }
+  .screen-ticket .booth-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+  .screen-ticket .booth-item {
+    background: var(--gray);
+    border-radius: 4px;
+    padding: 3px 2px;
+    text-align: center;
+    font-size: 7px;
+    font-weight: 700;
+    color: var(--text-light);
+    border: 1px solid var(--gray-mid);
+  }
+  .screen-ticket .booth-item.checked {
+    background: var(--pink-light);
+    border-color: var(--pink);
+    color: var(--pink);
+  }
+  .screen-ticket .booth-item.checked::before {
+    content: '✓ ';
+  }
+
+  /* ===== スタンプラリー画面 ===== */
+  .screen-stamp .screen-header {
+    background: linear-gradient(135deg, var(--green) 0%, #1A9960 100%);
+    color: white;
+    font-size: 10px;
+  }
+  .screen-stamp .stamp-progress {
+    background: var(--green-light);
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .screen-stamp .stamp-count {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--green);
+  }
+  .screen-stamp .stamp-count span {
+    font-size: 10px;
+    color: var(--text-light);
+  }
+  .screen-stamp .stamp-msg {
+    font-size: 8px;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .screen-stamp .stamp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .screen-stamp .stamp-btn {
+    background: var(--gray);
+    border-radius: 6px;
+    padding: 5px 3px;
+    text-align: center;
+    font-size: 7px;
+    font-weight: 700;
+    color: var(--text-light);
+    border: 1px solid var(--gray-mid);
+  }
+  .screen-stamp .stamp-btn.done {
+    background: var(--green-light);
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .screen-stamp .stamp-btn.done::before {
+    content: '✓\A';
+    display: block;
+    font-size: 10px;
+    white-space: pre;
+  }
+  .screen-stamp .lottery-btn {
+    background: linear-gradient(135deg, var(--gold) 0%, #B07A1A 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 7px;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+  }
+  .screen-stamp .lottery-btn-gray {
+    background: var(--gray-mid);
+    color: var(--text-light);
+    border-radius: 8px;
+    padding: 7px;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+  }
+
+  /* ===== 受付画面 ===== */
+  .screen-reception .screen-header {
+    background: linear-gradient(135deg, var(--blue) 0%, #1A5CB0 100%);
+    color: white;
+    font-size: 10px;
+  }
+  .screen-reception .check-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-mid);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .screen-reception .check-box {
+    width: 16px; height: 16px;
+    border-radius: 4px;
+    border: 1.5px solid var(--gray-mid);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+  }
+  .screen-reception .check-box.ok {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: white;
+  }
+  .screen-reception .status-ok {
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 8px;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 3px 8px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  /* ===== ポイントリスト ===== */
+  .point-list { list-style: none; }
+  .point-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray);
+    font-size: 13px;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-icon {
+    flex-shrink: 0;
+    font-size: 16px;
+    margin-top: 1px;
+  }
+
+  /* ===== 重要メモ ===== */
+  .important-box {
+    background: linear-gradient(135deg, #FFF8E0 0%, var(--gold-light) 100%);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+  .important-box .imp-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .important-box .imp-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ===== Q&A ===== */
+  .qa-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    overflow: hidden;
+    border: 1px solid var(--gray-mid);
+  }
+  .qa-q {
+    background: var(--navy);
+    color: white;
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .qa-q-mark {
+    background: var(--pink);
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .qa-a {
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .qa-a-mark {
+    background: var(--green);
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ===== トラブルフロー ===== */
+  .trouble-flow {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    border: 1px solid var(--gray-mid);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+  }
+  .trouble-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trouble-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .trouble-num {
+    background: var(--red-light);
+    color: var(--red);
+    border: 1.5px solid var(--red);
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+  .trouble-text {
+    font-size: 13px;
+    padding-top: 3px;
+  }
+  .trouble-arrow {
+    color: var(--text-light);
+    font-size: 18px;
+    margin: 2px 0 2px 36px;
+  }
+
+  /* ===== 役割分担表 ===== */
+  .role-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .role-table th {
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .role-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--gray);
+    vertical-align: top;
+  }
+  .role-table tr:last-child td { border-bottom: none; }
+  .role-table tr:nth-child(even) td { background: var(--gray); }
+
+  /* ===== チェックリスト（廃止・今回は未使用） ===== */
+
+  /* ===== フッター ===== */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    margin-top: 40px;
+  }
+
+  /* ===== divider ===== */
+  .divider {
+    border: none;
+    border-top: 2px dashed var(--gray-mid);
+    margin: 32px 0;
+  }
+
+  /* ===== ページブレーク表示 ===== */
+  .page-break-hint {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-light);
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    no-print: true;
+  }
+  .page-break-hint::before, .page-break-hint::after {
+    content: '';
+    flex: 1;
+    border-top: 1px dashed var(--gray-mid);
+  }
+
+  /* ===== スモールテキスト ===== */
+  .small { font-size: 12px; color: var(--text-light); }
+  .bold { font-weight: 700; }
+  .pink { color: var(--pink); }
+  .green { color: var(--green); }
+  .navy { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="header-badge">営業担当者向け 運営マニュアル</div>
+  <h1>beautycollection × B.DOORS<br>入場システム・スタンプラリー 操作ガイド</h1>
+  <div class="header-sub">今年から入場・ブース管理の仕組みが変わりました。このマニュアルで当日の流れを確認してください。</div>
+  <div class="header-tags">
+    <span class="header-tag">📋 受付対応</span>
+    <span class="header-tag">📱 スマホ操作</span>
+    <span class="header-tag">🎯 ブース管理</span>
+    <span class="header-tag">🎟 抽選会</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 重要変更点 -->
+  <div class="alert-box">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-title">今年から変わった重要ポイント！ 必ず読んでください</div>
+      <div class="alert-text">
+        展示会（beautycollection）の受付で、<strong>QRコードの読み取りが不要</strong>になりました。来場者のスマホ画面を「見るだけ」でOKです。代わりに、来場者自身がブース訪問履歴をスマホで記録するようになりました。この履歴が後日の<strong>クロージング営業の重要資料</strong>になります。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== -->
+  <!-- SECTION 1: 概要 -->
+  <!-- ===================== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">1</div>
+      2つのイベントの違いを理解しよう
+    </div>
+
+    <div class="two-col">
+      <div class="card" style="border-top: 4px solid var(--pink);">
+        <div class="card-title">
+          <span class="tag tag-pink">展示会</span>
+          beautycollection
+        </div>
+        <ul class="point-list">
+          <li><span class="point-icon">👥</span><span>対象：<strong>一般来場者（サロン関係者など）</strong></span></li>
+          <li><span class="point-icon">📱</span><span>入場：返信メールの<strong>デジタル入場証</strong>を画面提示</span></li>
+          <li><span class="point-icon">🗺</span><span>ブース訪問：来場者がスマホで<strong>チェック</strong>を入力</span></li>
+          <li><span class="point-icon">📊</span><span>目的：訪問履歴 → <strong>後日のクロージング資料</strong>に活用</span></li>
+        </ul>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--green);">
+        <div class="card-title">
+          <span class="tag tag-green">就活</span>
+          B.DOORS
+        </div>
+        <ul class="point-list">
+          <li><span class="point-icon">🎓</span><span>対象：<strong>美容学生（授業の一環）</strong></span></li>
+          <li><span class="point-icon">📿</span><span>入場：学年別カラーの<strong>リストバンド</strong>を配布</span></li>
+          <li><span class="point-icon">🎮</span><span>ブース訪問：<strong>スタンプラリー形式</strong>でタップ</span></li>
+          <li><span class="point-icon">🎁</span><span>目的：5ブース以上で<strong>抽選会参加権</strong>を獲得</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== -->
+  <!-- SECTION 2: beautycollection フロー -->
+  <!-- ===================== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">2</div>
+      <span class="pink">beautycollection</span>｜一般来場者の対応フロー
+    </div>
+
+    <div class="card">
+      <div class="flow">
+
+        <!-- STEP 1 -->
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-dot">1</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-step-title">📱 受付：デジタル入場証の画面を確認する</div>
+            <p style="font-size:13px; margin-bottom:12px;">来場者のスマホに表示される「デジタル入場証」を目視で確認します。<strong>QRを読み取る機器は不要</strong>です。スムーズに入場を促してください。</p>
+
+            <!-- 画面モックアップ -->
+            <div class="phone-mockup-wrap">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen screen-ticket">
+                    <div class="screen-header">✉ 返信メールを開く</div>
+                    <div class="screen-body">
+                      <div class="ticket-event">beautycollection 2026</div>
+                      <div class="ticket-name">田中 美穂 様</div>
+                      <div class="ticket-id">ID: BC2026-00123</div>
+                      <div class="qr-placeholder">入場証<br>QR</div>
+                      <div style="font-size:8px; color:var(--text-light); text-align:center;">※提示のみでOK・読取不要</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-label">来場者のスマホ画面</div>
+              </div>
+            </div>
+
+            <div class="important-box">
+              <div class="imp-title">💡 スタッフの対応</div>
+              <div class="imp-text">「ありがとうございます、確認できました！」と声をかけて入場を促す。読み取り作業は不要なので、列が詰まらないよう<strong>スピーディーに対応</strong>してください。</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-dot" style="background: var(--gold);">2</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-step-title">🗺 ブース内：チェックマップへの入力を促す（最重要！）</div>
+            <p style="font-size:13px; margin-bottom:12px;">来場者の入場証には「<strong>場内マップ</strong>」と「<strong>チェックマップ</strong>」が含まれています。ブース担当者は、来場者が訪れた際に必ずチェックを入れるよう声掛けしてください。</p>
+
+            <!-- 画面モックアップ -->
+            <div class="phone-mockup-wrap">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen screen-ticket">
+                    <div class="screen-header" style="background: linear-gradient(135deg, var(--pink) 0%, #C13060 100%); color:white;">チェックマップ</div>
+                    <div class="screen-body">
+                      <div class="map-label">訪問したブースをチェック ✓</div>
+                      <div class="booth-grid">
+                        <div class="booth-item checked">Aブース</div>
+                        <div class="booth-item">Bブース</div>
+                        <div class="booth-item checked">Cブース</div>
+                        <div class="booth-item">Dブース</div>
+                        <div class="booth-item checked">Eブース</div>
+                        <div class="booth-item">Fブース</div>
+                      </div>
+                      <div style="margin-top:8px; font-size:8px; color:var(--text-light);">ピンクがチェック済み</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-label">来場者がチェックする画面</div>
+              </div>
+            </div>
+
+            <div class="important-box" style="background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%); border-color: var(--red);">
+              <div class="imp-title" style="color: var(--red);">🔴 ここが最重要！ チェック漏れは営業機会の損失です</div>
+              <div class="imp-text">この<strong>訪問チェック履歴が後日の営業担当者のクロージング資料</strong>になります。「どのサロンがどのブースに興味を持ったか」がわかる貴重なデータです。<br><strong>「チェックはお済みですか？」と必ず声掛けをお願いします！</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-dot" style="background: var(--blue);">3</div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-step-title">✅ 退場：特別な手続きなし</div>
+            <p style="font-size:13px;">退場時の特別な手続きは不要です。来場者が自由に退場できます。チェック済みの訪問履歴はシステム内に保存されているため、後日営業担当者がデータを活用します。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===================== -->
+  <!-- SECTION 3: B.DOORS フロー -->
+  <!-- ===================== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">3</div>
+      <span class="green">B.DOORS</span>｜学生（スタンプラリー）の対応フロー
+    </div>
+
+    <div class="card">
+      <div class="flow">
+
+        <!-- STEP 1 -->
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-dot green">1</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-step-title">📿 受付：リストバンドを配布してQRを読み取ってもらう</div>
+            <p style="font-size:13px; margin-bottom:12px;">学生が到着したら、<strong>学年別カラーのリストバンド</strong>を渡します。次に学生自身のスマホでリストバンドのQRコードを読み取ってもらいます。</p>
+
+            <!-- 画面モックアップ -->
+            <div class="phone-mockup-wrap">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen screen-reception">
+                    <div class="screen-header">受付 ｜ リストバンドQR読取</div>
+                    <div class="screen-body">
+                      <div class="check-item">
+                        <div class="check-box ok">✓</div>
+                        学年確認済み
+                      </div>
+                      <div class="check-item">
+                        <div class="check-box ok">✓</div>
+                        カラー配布済み
+                      </div>
+                      <div class="check-item">
+                        <div class="check-box">　</div>
+                        QR読取 誘導中…
+                      </div>
+                      <div class="status-ok" style="margin-top:8px;">読み取り後→スタンプ画面が開きます</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-label">受付スタッフ用イメージ</div>
+              </div>
+
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen screen-stamp">
+                    <div class="screen-header">🎮 デジタルスタンプラリー</div>
+                    <div class="screen-body">
+                      <div class="stamp-progress">
+                        <div class="stamp-count">0<span>/5</span></div>
+                        <div class="stamp-msg">5つ集めて抽選に参加！</div>
+                      </div>
+                      <div class="stamp-grid">
+                        <div class="stamp-btn">A社<br>ブース</div>
+                        <div class="stamp-btn">B社<br>ブース</div>
+                        <div class="stamp-btn">C社<br>ブース</div>
+                        <div class="stamp-btn">D社<br>ブース</div>
+                        <div class="stamp-btn">E社<br>ブース</div>
+                        <div class="stamp-btn">F社<br>ブース</div>
+                      </div>
+                      <div class="lottery-btn-gray">🎁 抽選（5つ必要）</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-label">QR読取後の学生画面</div>
+              </div>
+            </div>
+
+            <div class="important-box">
+              <div class="imp-title">💡 リストバンドのカラー分け</div>
+              <div class="imp-text">
+                学年ごとに色が異なります（例：1年生=ピンク、2年生=グリーンなど）。<br>学年を確認してから正しい色のリストバンドを渡してください。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-dot green">2</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-step-title">🎮 ブース訪問：タップを促す</div>
+            <p style="font-size:13px; margin-bottom:12px;">学生がブースを訪れたら、スタンプラリー画面で該当ブースの<strong>ボタンをタップ</strong>してもらいます。ブース担当者からも「タップしましたか？」と声掛けをお願いします。</p>
+
+            <!-- 画面モックアップ -->
+            <div class="phone-mockup-wrap">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen screen-stamp">
+                    <div class="screen-header">🎮 デジタルスタンプラリー</div>
+                    <div class="screen-body">
+                      <div class="stamp-progress">
+                        <div class="stamp-count">3<span>/5</span></div>
+                        <div class="stamp-msg">あと2つで抽選参加！</div>
+                      </div>
+                      <div class="stamp-grid">
+                        <div class="stamp-btn done">A社<br>ブース</div>
+                        <div class="stamp-btn">B社<br>ブース</div>
+                        <div class="stamp-btn done">C社<br>ブース</div>
+                        <div class="stamp-btn done">D社<br>ブース</div>
+                        <div class="stamp-btn">E社<br>ブース</div>
+                        <div class="stamp-btn">F社<br>ブース</div>
+                      </div>
+                      <div class="lottery-btn-gray">🎁 抽選（あと2つ！）</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-label">3スタンプ時点の画面</div>
+              </div>
+
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen screen-stamp">
+                    <div class="screen-header">🎮 デジタルスタンプラリー</div>
+                    <div class="screen-body">
+                      <div class="stamp-progress" style="background: linear-gradient(135deg, var(--gold-light) 0%, #FFF0C0 100%);">
+                        <div class="stamp-count" style="color:var(--gold);">5<span style="color:var(--text-light);">/5</span></div>
+                        <div class="stamp-msg" style="color:var(--gold);">🎉 抽選参加できます！</div>
+                      </div>
+                      <div class="stamp-grid">
+                        <div class="stamp-btn done">A社<br>ブース</div>
+                        <div class="stamp-btn done">B社<br>ブース</div>
+                        <div class="stamp-btn done">C社<br>ブース</div>
+                        <div class="stamp-btn done">D社<br>ブース</div>
+                        <div class="stamp-btn done">E社<br>ブース</div>
+                        <div class="stamp-btn">F社<br>ブース</div>
+                      </div>
+                      <div class="lottery-btn">🎁 抽選会場へ進む ▶</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-label">5スタンプ達成！の画面</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-dot gold">3</div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-step-title">🎁 抽選会場：5つ以上のスタンプを目視確認</div>
+            <p style="font-size:13px; margin-bottom:12px;">抽選会場の担当者は、学生のスマホ画面を見て<strong>5つ以上のチェックがある</strong>ことを確認してください。厳密な審査より、楽しい雰囲気作りを優先してください。</p>
+
+            <div class="important-box">
+              <div class="imp-title">💡 抽選会場スタッフへのお願い</div>
+              <div class="imp-text">
+                目的は「多くのブースを回ってもらうこと」です。<br>
+                ・スタンプが5個以上なら笑顔で「OK！」<br>
+                ・細かいチェックより、<strong>楽しんでもらう雰囲気</strong>を優先<br>
+                ・困ったことがあれば責任者に確認
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===================== -->
+  <!-- SECTION 4: 役割分担 -->
+  <!-- ===================== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">4</div>
+      スタッフ役割分担チェック表
+    </div>
+
+    <table class="role-table">
+      <thead>
+        <tr>
+          <th>担当エリア</th>
+          <th>主な役割</th>
+          <th>確認ポイント</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>全体受付</strong></td>
+          <td>来場者の種別判定</td>
+          <td>一般来場者 → 入場証画面を目視確認<br>学生 → リストバンド配布・QR読取誘導</td>
+        </tr>
+        <tr>
+          <td><strong>ブース誘導</strong></td>
+          <td>履歴・タップの促進</td>
+          <td>展示会来場者には「チェックはお済みですか？」<br>学生には「タップしましたか？」と声掛け</td>
+        </tr>
+        <tr>
+          <td><strong>抽選会場</strong></td>
+          <td>参加資格の確認</td>
+          <td>学生のスマホで5スタンプ以上を目視確認<br>楽しい雰囲気づくりを優先</td>
+        </tr>
+        <tr>
+          <td><strong>巡回スタッフ</strong></td>
+          <td>出展企業への声掛け</td>
+          <td>各ブースが来場者に履歴入力を促しているか巡回確認</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===================== -->
+  <!-- SECTION 5: Q&A -->
+  <!-- ===================== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">5</div>
+      よくあるQ&A
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">
+        <div class="qa-q-mark">Q</div>
+        来場者がスマホを忘れた・電池が切れていた場合はどうすればいいですか？
+      </div>
+      <div class="qa-a">
+        <div class="qa-a-mark">A</div>
+        <div>受付責任者に報告してください。紙の代替入場証または手書き記録の対応を責任者が判断します。来場者を入場拒否せず、まず受付に誘導してください。</div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">
+        <div class="qa-q-mark">Q</div>
+        QRコードが読み取れない・デジタルスタンプラリー画面が開かないと学生が言っています。
+      </div>
+      <div class="qa-a">
+        <div class="qa-a-mark">A</div>
+        <div>①スマホのカメラアプリで読み取っているか確認（専用アプリは不要）②通信状況を確認（機内モードになっていないか）③それでも開かない場合は受付責任者に引き継ぎを。<strong>学生を一人で待たせないように</strong>してください。</div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">
+        <div class="qa-q-mark">Q</div>
+        来場者がブースのチェックを入れるのを忘れて帰ってしまった場合は？
+      </div>
+      <div class="qa-a">
+        <div class="qa-a-mark">A</div>
+        <div>後からの修正はシステム上できないため、当日のブース訪問時に必ず声掛けすることが最重要です。ブース担当者に「<strong>チェックの声掛けを必ずするよう</strong>」事前に伝えておいてください。</div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">
+        <div class="qa-q-mark">Q</div>
+        リストバンドを失くした・壊れた学生はどう対応しますか？
+      </div>
+      <div class="qa-a">
+        <div class="qa-a-mark">A</div>
+        <div>予備のリストバンドが受付に用意されています。学年を確認して正しいカラーを再発行してください。再発行の場合でも、スタンプラリーのデータはスマホ側に保存されているため消えません。</div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">
+        <div class="qa-q-mark">Q</div>
+        抽選会場で「スタンプが4個しかない」と言われた場合はどう対応しますか？
+      </div>
+      <div class="qa-a">
+        <div class="qa-a-mark">A</div>
+        <div>原則は5個以上が参加条件です。ただし<strong>「楽しんでもらう雰囲気優先」</strong>の方針なので、個別の判断が必要な場合は責任者に相談してください。学生を追い返す前に一度確認を。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===================== -->
+  <!-- SECTION 6: トラブル対応フロー -->
+  <!-- ===================== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">6</div>
+      トラブル対応フロー
+    </div>
+
+    <div class="two-col">
+
+      <div class="trouble-flow">
+        <div class="trouble-title">📱 スマホが反応しない（展示会）</div>
+        <div class="trouble-step">
+          <div class="trouble-num">1</div>
+          <div class="trouble-text">「一度アプリを閉じて再度開いてみてください」と案内</div>
+        </div>
+        <div class="trouble-arrow">↓</div>
+        <div class="trouble-step">
+          <div class="trouble-num">2</div>
+          <div class="trouble-text">改善しない場合、Wi-Fiまたはデータ通信の確認を依頼</div>
+        </div>
+        <div class="trouble-arrow">↓</div>
+        <div class="trouble-step">
+          <div class="trouble-num">3</div>
+          <div class="trouble-text">それでも解決しない場合は<strong>受付責任者に引き継ぎ</strong></div>
+        </div>
+        <div class="trouble-arrow">↓</div>
+        <div class="trouble-step">
+          <div class="trouble-num">4</div>
+          <div class="trouble-text">紙のブース訪問記録シート（受付に備蓄）で代替対応</div>
+        </div>
+      </div>
+
+      <div class="trouble-flow">
+        <div class="trouble-title">📿 QRが読み取れない（学生）</div>
+        <div class="trouble-step">
+          <div class="trouble-num">1</div>
+          <div class="trouble-text">カメラアプリで読み取るよう案内（専用アプリ不要）</div>
+        </div>
+        <div class="trouble-arrow">↓</div>
+        <div class="trouble-step">
+          <div class="trouble-num">2</div>
+          <div class="trouble-text">機内モード・Wi-Fi・データ通信の確認を依頼</div>
+        </div>
+        <div class="trouble-arrow">↓</div>
+        <div class="trouble-step">
+          <div class="trouble-num">3</div>
+          <div class="trouble-text">それでも解決しない場合は<strong>受付責任者に引き継ぎ</strong></div>
+        </div>
+        <div class="trouble-arrow">↓</div>
+        <div class="trouble-step">
+          <div class="trouble-num">4</div>
+          <div class="trouble-text">別のリストバンドのQRで再チャレンジ、または手書き対応</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="trouble-flow">
+      <div class="trouble-title">🚨 混雑・列が長くなった場合</div>
+      <div class="two-col">
+        <div>
+          <div class="trouble-step">
+            <div class="trouble-num">1</div>
+            <div class="trouble-text">すぐに巡回スタッフまたは責任者に無線で報告</div>
+          </div>
+          <div class="trouble-arrow">↓</div>
+          <div class="trouble-step">
+            <div class="trouble-num">2</div>
+            <div class="trouble-text">展示会・学生の受付レーンを分ける（誘導サインを使用）</div>
+          </div>
+        </div>
+        <div>
+          <div class="trouble-step">
+            <div class="trouble-num">3</div>
+            <div class="trouble-text">スタッフを1名追加投入して対応（巡回スタッフから補充）</div>
+          </div>
+          <div class="trouble-arrow">↓</div>
+          <div class="trouble-step">
+            <div class="trouble-num">4</div>
+            <div class="trouble-text">「少々お待ちください」と来場者に声掛けし、笑顔を維持</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 緊急連絡体制 -->
+  <div class="card" style="border: 2px dashed var(--gray-mid); background: var(--gray);">
+    <div class="card-title" style="font-size: 15px;">
+      📞 当日の緊急連絡先
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 13px;">
+      <div>
+        <div style="font-weight:700; color:var(--text-light); font-size:11px; margin-bottom:4px;">当日責任者</div>
+        <div style="font-size:14px; font-weight:700;">　　　　　　</div>
+        <div style="color:var(--text-light);">内線：＿＿＿＿</div>
+      </div>
+      <div>
+        <div style="font-weight:700; color:var(--text-light); font-size:11px; margin-bottom:4px;">システム担当</div>
+        <div style="font-size:14px; font-weight:700;">　　　　　　</div>
+        <div style="color:var(--text-light);">内線：＿＿＿＿</div>
+      </div>
+      <div>
+        <div style="font-weight:700; color:var(--text-light); font-size:11px; margin-bottom:4px;">会場本部</div>
+        <div style="font-size:14px; font-weight:700;">　　　　　　</div>
+        <div style="color:var(--text-light);">無線CH：＿＿</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- フッター -->
+<div class="footer">
+  beautycollection × B.DOORS 運営マニュアル｜営業担当者向け｜社外秘<br>
+  印刷する場合：ブラウザの「印刷」→「用紙サイズ A4」「背景のグラフィックを含める」にチェックを入れてください
+</div>
+
+</body>
+</html>
